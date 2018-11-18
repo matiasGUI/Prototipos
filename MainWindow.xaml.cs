@@ -12,17 +12,32 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
+using MahApps.Metro.Behaviours;
 
 namespace Prototipo
 {
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (btnUsuario.Text == "Matias" && pwContraseña.Password == "123")
+            {
+                await this.ShowMessageAsync("Exito", "Ingreso Correctamente");
+            }
+            else
+            {
+                await this.ShowMessageAsync("Erroneo", "Usuario o contraseña incorrecta");
+            }
         }
     }
 }
